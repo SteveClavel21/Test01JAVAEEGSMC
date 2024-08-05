@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>marca</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+<a th:href="@{/marca/nuevo}">nuevo</a>
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="marca : ${marcas}">
+        <td th:text="${marca.id}"></td>
+        <td th:text="${marca.nombregsmc}"></td>
+        <td>
+            <a th:href="@{/marca/editar/{id}(id=${marca.id})}">Editar</a>
+            <a th:href="@{/marca/eliminar/{id}(id=${marca.id})}">Eliminar</a>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
