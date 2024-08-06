@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${departamento.id == null} ? 'Nuevo Departamento' : 'Editar Departamento'"></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 th:text="${departamento.id == null} ? 'Nuevo Departamento' : 'Editar Departamento'"></h1>
+    <form th:action="@{/departamento}" th:object="${departamento}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-group">
+            <label for="nombregsmc">Nombre:</label>
+            <input type="text" id="nombregsmc" th:field="*{nombregsmc}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="telefonogsmc">Teléfono:</label>
+            <input type="text" id="telefonogsmc" th:field="*{telefonogsmc}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="jefegsmc">Jefe:</label>
+            <input type="text" id="jefegsmc" th:field="*{jefegsmc}" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+    <a href="#" th:href="@{/departamento}" class="btn btn-secondary mt-3">Volver a la lista</a>
+</div>
+</body>
+</html>
