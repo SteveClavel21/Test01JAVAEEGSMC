@@ -3,20 +3,46 @@
 <head>
     <title>Formulario cliente</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
 </head>
 <body>
-<h1 th:text="${cliente.id == null} ? 'Nuevo cliente' : 'Editar cliente'"></h1>
-<form th:action="@{/cliente}" th:object="${cliente}" method="post">
-    <input type="hidden" th:field="*{id}" />
-    <label>Nombre:</label>
-    <input type="text" th:field="*{nombregsmc}" />
-    <input type="text" th:field="*{direcciongsmc}">
-    <input type="date" th:field="*{fechanacimientogsmc}">
-    <input type="number" th:field="*{sueldogsmc}">
-    <input type="number" th:field="*{estatusgsmc}">
-    <button type="submit">Guardar</button>
-</form>
-<a href="/cliente">Volver a la lista</a>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h1 th:text="${cliente.id == null} ? 'Nuevo cliente' : 'Editar cliente'"></h1>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/cliente}" th:object="${cliente}" method="post">
+                <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" th:field="*{nombregsmc}" class="form-control" id="nombre" />
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" th:field="*{direcciongsmc}" class="form-control" id="direccion" />
+                </div>
+                <div class="form-group">
+                    <label for="fechanacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" th:field="*{fechanacimientogsmc}" class="form-control" id="fechanacimiento" />
+                </div>
+                <div class="form-group">
+                    <label for="sueldo">Sueldo:</label>
+                    <input type="number" th:field="*{sueldogsmc}" class="form-control" id="sueldo" />
+                </div>
+                <div class="form-group">
+                    <label for="estatus">Estatus:</label>
+                    <input type="number" th:field="*{estatusgsmc}" class="form-control" id="estatus" />
+                </div>
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a th:href="@{/cliente}" class="btn btn-secondary">Regresar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

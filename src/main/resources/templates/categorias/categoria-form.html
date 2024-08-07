@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Formulario de categoria</title>
+    <title>Formulario de categoría</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
 </head>
 <body>
-<h1 th:text="${categoria.id == null} ? 'Nueva categoria' : 'Editar categoria'"></h1>
-<form th:action="@{/categoria}" th:object="${categoria}" method="post">
-    <input type="hidden" th:field="*{id}" />
-    <label>Nombre:</label>
-    <input type="text" th:field="*{nombregsmc}" />
+<div class="container mt-5">
+    <h1 th:text="${categoria.id == null} ? 'Nueva categoría' : 'Editar categoría'"></h1>
+    <form th:action="@{/categoria}" th:object="${categoria}" method="post" class="mt-4">
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" th:field="*{nombregsmc}" class="form-control" id="nombre" />
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" th:field="*{descripciongsmc}" class="form-control" id="descripcion" />
+        </div>
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a th:href="@{/categoria}" class="btn btn-secondary">Regresar</a>
 
-    <label>Descripcion</label>
-    <input type="text" th:field="*{descripciongsmc}" />
-
-    <button type="submit">Guardar</button>
-</form>
-<a href="/marca">Volver a la lista</a>
+        </div>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
